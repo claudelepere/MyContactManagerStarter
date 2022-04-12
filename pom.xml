@@ -13,9 +13,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-<!--         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version> -->
         <maven.surefire.plugin.version>3.0.0-M6</maven.surefire.plugin.version>
         <maven.failsafe.plugin.version>${maven.surefire.plugin.version}</maven.failsafe.plugin.version>
+        <maven.surefire.report.plugin.version>${maven.surefire.plugin.version}</maven.surefire.report.plugin.version>
+        <maven.site.plugin.version>3.11.0</maven.site.plugin.version>
+        <maven.project.info.reports.plugin.version>3.2.2</maven.project.info.reports.plugin.version>
         <java.version>16</java.version>
     </properties>
 
@@ -29,6 +31,7 @@
     </dependencies>
 
     <build>
+    <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,7 +51,32 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven.failsafe.plugin.version}</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${maven.surefire.report.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven.site.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${maven.project.info.reports.plugin.version}</version>
+            </plugin>
         </plugins>
+    </pluginManagement>
     </build>
-    
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${maven.surefire.report.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
